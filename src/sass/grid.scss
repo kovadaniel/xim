@@ -1,0 +1,97 @@
+$fix: 40px;
+
+$lg-grid: 1360px;
+$md-grid: 960px;
+$sm-grid: 600px;
+$xs-grid: 440px;
+$xxs-grid: 320px;
+
+$lg: $lg-grid + $fix;
+$md: $md-grid + $fix;
+$sm: $sm-grid + $fix;
+$xs: $xs-grid + $fix;
+$xxs: $xxs-grid + $fix;
+
+@mixin media-base($min, $max) {
+
+	@media only screen
+		and (min-width: $min)
+		and (max-width: calc($max - .2px)) {
+
+		@content;
+
+	}
+}
+
+@mixin lg {
+	@media only screen and (min-width: $lg) {
+		@content;
+	}
+}
+
+@mixin md {
+	@include media-base($md, $lg) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@include media-base($sm, $md) {
+		@content;
+	}
+}
+
+@mixin xs {
+	@include media-base(0, $sm) {
+		@content;
+	}
+}
+
+@mixin xxs {
+	@include media-base(0px, $xs) {
+		@content;
+	}
+}
+
+/**/
+
+@mixin more-than-sm {
+	@media only screen and (min-width: $md) {
+		@content;
+	}
+}
+
+@mixin sm-and-less {
+	@media only screen and (max-width: calc($md - .2px)) {
+		@content;
+	}
+}
+
+.container {
+	margin: 0 auto;
+
+	@include lg {
+		// background-color: grey;
+		width: $lg-grid;
+	}
+
+	@include md {
+		// background-color: coral;
+		width: $md-grid;
+	}
+
+	@include sm {
+		// background-color: steelblue;
+		width: $sm-grid;
+	}
+
+	@include xs {
+		// background-color: forestgreen;
+		width: $xs-grid;
+	}
+
+	@include xxs {
+		// background-color: hotpink;
+		width: $xxs-grid;
+	}
+}

@@ -1,0 +1,19 @@
+extends ../parts/doctype
+
+block head
+	link(rel="stylesheet" href="/css/app.css")
+
+block body
+
+	- const imgPath = '/resources/images/'
+
+	#wrapper
+
+		include ../parts/header
+
+		main#main
+			block content
+
+		include ../parts/burger-menu
+
+	include ../parts/scripts
