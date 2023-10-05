@@ -1,3 +1,36 @@
 footer#footer
-	span © Все права защищены
+	.footer__header
+		.container
+			include navbar.pug
+			button.button
+				span Стать партнёром
+	.footer__body
+		.container 
+			.footer__info 
+				span ГК ОКТЕН © 2023
+			.footer__info
+				span ИНН: 6949115461
+				span ОГРНИП: 1216900014198
+			.footer__contacts
+				-
+					var contactIcon = 'call.png';
+					var contactTitle = 'Телефон';
+					var contactDescription = '+7 (495) 123-35-77';
+				include footer-contact
+				-
+					var contactIcon = 'location.png';
+					var contactTitle = 'Мы находимся по адресу:';
+					var contactDescription = 'Тверская область, Конаковский район, д. Старое Мелково, ул. Центральная 6';
+				include footer-contact
+
+				img.octen(src=imgPath + 'octen.png' alt='octen')
+
+				.rusit
+					img.icon(src=imgPath + 'rusit.png' alt='rusit')
+					span Сайт разработан компанией Rusit
+
+
+
+
+//-	span © Все права защищены
 	a(href="/legal.html") Политика конфиденциальности

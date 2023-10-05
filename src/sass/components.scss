@@ -1,9 +1,16 @@
 @import "common.scss";
 
-.header{
+#wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height:  100vh;
+}
+
+#header{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 0;
     height: $header-height;
 
     box-shadow: 0px 0px 5px rgba($color: black, $alpha: .5);
@@ -14,39 +21,194 @@
         margin-bottom: 15px;
     }
 
+    .button{
+        height: 58px;
+        border-radius: 12px;
+    }
+
     .container{
-        display: flex;
-        justify-content: space-around;
-
-        .header__nav{
-            display: flex;
-            align-items: center;
-
-            .header__navList{
-                display: flex;
-                list-style: none;
-                padding: 0 29px;
-
-                .header__navListItem{
-                    margin-right: 82px;
-
-                    &:last-child{
-                        margin-right: 0;
-                    }
-
-                    .header__ref{
-                        font-family: "Montserrat";
-                        font-weight: 600;
-                        text-decoration: none;
-                        color: black;
-                    }  
-                }
-            }
-        }
+        justify-content: space-between;
 
         .header__actions{
             display: flex;
             align-items: center;
         }
+    }
+}
+
+#footer{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    .container{
+        justify-content: center;
+    }
+
+    .footer__header{
+        display: flex;
+        align-items: center;
+        min-height: 100px;
+        background-color: $orange;
+    }
+    .navbar__ref{
+        color: white;
+    }
+
+    .button{
+        height: 58px;
+        background-color: white;
+        border-radius: 12px;
+        margin-left: 165px;
+        span{
+            color: $orange;
+        }
+    }
+
+    .footer__body{
+        padding-top: 21px;
+
+        .container{
+            flex-direction: column;
+        }
+    }
+    
+    .footer__info{
+        display: block;
+        margin-top: 34px;
+        font-size: "Montserrat";
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .footer__contacts{
+        margin-top: 72px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .octen{
+        width: 147px;
+        height: 80px;
+    }
+
+    .rusit{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        max-width: 151px;
+        text-align: end;
+        .icon{
+            width: 151px;
+            height: 36px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+#main{
+    position: relative;
+    min-height: 500px;
+    flex-grow: 1;
+    overflow: hidden;
+    
+    background-image: url('../resources/images/background.svg');
+    background-position: center 3%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .container{
+        flex-direction: column;
+    }
+}
+
+#main-section{
+    display: flex;
+    justify-content: space-around;
+    padding: 164px 0 156px;
+}
+
+#about-section{
+    .content{
+        margin-top: 72px;
+        margin-bottom: 146px;
+        display: flex;
+        justify-content: space-between;
+
+        .about-description{
+            margin-right: 1rem;
+            margin-top: 0;
+            margin-bottom: 0;
+            max-width: 470px;
+            width: 100%;
+
+            font-family: "Montserrat";
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 3.1875rem;
+
+            .storong{
+                font-size: 48px;
+                font-weight: bold;
+            }
+        }
+
+        .about-video-container{
+            max-width: 1103px;
+            width: 100%;
+            height: 595px;
+
+
+        }
+
+        .button{
+            margin-top: 44px;
+            padding: 19.5px 71px 19px 70px;
+            border-radius: 12px;
+            color: white;
+        }
+    }
+}
+
+#products-section{
+    margin: 108px 0 113px;
+
+    .products-image-outer{
+        position: relative;
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        width: 100%;
+        height: 770px;
+        background-image: url('../resources/images/splashing-oil.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center bottom;
+
+        .products-image-inner{
+            position: absolute;
+            bottom: -10.5%;
+            max-width: 705px;
+            width: 100%;
+            height: 703px;
+            background-image: url('../resources/images/oil-bottles.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+        }
+    }
+
+    .button{
+        margin: 163px auto 0;
+        padding: 19.5px 71px 19px 70px;
+        border-radius: 12px;
+        color: white;
+    }
+
+    .products{
+        margin-top: 158px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
