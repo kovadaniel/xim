@@ -1,12 +1,29 @@
-$xl-grid: 1598px; // 1598px
-$lg-grid: 1221px; // 1340px
-$md-grid: 674px; // 768px
-$xxs-grid: 295px; // 320px
+/*
+$xl-grid: 1592px; // 1598px
+$lg-grid: 1220px; // 1340px
+$md-grid: 676px; // 768px
+$xs-grid: 260px; // 320px
 
-$xl: $xl-grid + 322px; // to 1920px
-$lg: $lg-grid + 119px; // to 1340px
-$md: $md-grid + 94px; // to 768px
-$xxs: $xxs-grid + 25px; // to 320px
+$xl: $xl-grid + 328px; // to 1920px
+$lg: $lg-grid + 120px; // to 1340px
+$md: $md-grid + 92px; // to 768px
+$xs: $xs-grid + 60px; // to 320px
+*/
+
+$xl-grid: 1592px; // 1598px
+$lg-grid: 1220px; // 1340px
+$md-grid: 676px; // 768px
+$xs-grid: 260px; // 320px
+
+$xl-padding: 164px;
+$lg-padding: 60px;
+$md-padding: 46px;
+$xs-padding: 30px; 
+
+$xl: $xl-grid + 328px; // to 1920px
+$lg: $lg-grid + 120px; // to 1340px
+$md: $md-grid + 92px; // to 768px
+$xs: $xs-grid + 60px; // to 320px
 
 @mixin media-base($min, $max) {
 	@media only screen
@@ -35,7 +52,7 @@ $xxs: $xxs-grid + 25px; // to 320px
 	}
 }
 
-@mixin xxs {
+@mixin xs {
 	@include media-base(0px, $md) {
 		@content;
 	}
@@ -51,13 +68,24 @@ $xxs: $xxs-grid + 25px; // to 320px
 
 	@include lg {
 		width: $lg-grid;
+		/*
+		width: 100%;
+		padding: 0 $lg-padding;
+		*/
 	}
 
 	@include md {
 		width: $md-grid;
+		/*
+		width: 100%;
+		padding: 0 $md-padding;
+		*/
 	}
-
-	@include xxs {
-		width: $xxs-grid;
+	@include xs {
+		//width: $xs-grid;
+		///*
+		width: 100%;
+		padding: 0 $xs-padding;
+		//*/
 	}
 }

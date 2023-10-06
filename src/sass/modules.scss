@@ -2,6 +2,13 @@
     display: flex;
     align-items: center;
 
+    @include md{
+        display: none;
+    }
+    @include xs{
+        display: none;
+    }
+
     .navbar__list{
         display: flex;
         list-style: none;
@@ -29,13 +36,34 @@
     }
 }
 
+#burger{
+    margin-left: 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+
+    @include lg{
+        display: none;
+    }
+    @include xl{
+        display: none;
+    }
+
+    i{
+        display: block;
+        width: 31px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 2px;
+        margin: 4.5px 0;
+    }
+}
+
 .button{
     display: flex;
     align-items: center;
     width: fit-content;
-    min-height: 33px;
-    padding: 6.6px 35px 5.5px;
-
     background-color: $orange;
     border-radius: 5px;
     border: 0;
@@ -75,20 +103,47 @@
 }
 
 .big-logo{
+    position: absolute;
+    left: 0;
     display: flex;
     flex-direction: column;
-    background-image: url('../resources/images/big-XIM-01.png');
-    background-size: cover;
-    background-position: center;
 
-    width: 563px;
-    height: 423px;
-    padding: 267px 31px 0;
-
+    @include xl{
+        width: 563px;
+        height: 423px;
+        padding: 5px 31px 12px;
+    }
     @include lg{
         width: 458px;
-        height: 344px;
-        padding: 220px 0 0;
+        height: 363px;
+        padding-top: 5px;
+    }
+    @include md{
+        align-items: baseline;
+    }
+    @include xs{
+        align-items: center;
+        right: 0;
+        top: 39px;
+    }
+
+    .big-logo__logo{
+        @include xl{
+            width: 375px;
+            margin: 0 auto 47px;
+        }
+        @include lg{
+            width: 308px;
+            margin: 0 auto 39px;
+        }
+        @include md{
+            width: 183px;
+            margin-bottom: 14px;
+        }
+        @include xs{
+            width: 183px;
+            margin-bottom: 17px;
+        }
     }
 
     .big-logo__text{
@@ -97,18 +152,10 @@
         align-items: center;
         text-align: center;
 
-        .big-logo__title{
-            font-family: "Montserrat";
-            font-weight: 800;
-            font-size: 3rem;
+        @include md{
+            align-items: baseline;
         }
-        .big-logo__subtitle{
-            font-family: "Montserrat";
-            font-weight: 800;
-            font-size: 2rem;
-            margin: 0 -30px;
 
-        }
         &::before{
             content: "";
             display: block;
@@ -116,12 +163,50 @@
             width: 100%;
             margin-bottom: 25px;
             background-color: $orange;
+            @include md{
+                width: 241px;
+                margin-bottom: 15px;
+            }
+            @include xs{
+                width: 241px;
+                margin-bottom: 17px;
+            }
         }
 
+        .big-logo__title{
+            margin-bottom: 21px;
+            font-family: "Montserrat";
+            font-weight: 800;
+            font-size: 3rem;
+
+            @include md{
+                margin-bottom: 15px;
+                font-size: 2.25rem;
+            }
+            @include xs{
+                margin-bottom: 17px;
+                font-size: 2rem;
+            }
+        }
+        .big-logo__subtitle{
+            font-family: "Montserrat";
+            font-weight: 800;
+            font-size: 2rem;
+            margin: 0 -30px;
+
+            @include md{
+                font-size: 1.25rem;
+            }
+            @include xs{
+                font-size: 1rem;
+            }
+        }
     }
 }
 
 .main-image-outer{
+    position: absolute;
+    left: 34.5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,6 +217,25 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+
+    @include lg{
+        max-width: 808px;
+    }
+    @include md{
+        max-width: 699px;
+    }
+    @include xs{
+        //max-width: 437px;
+        width: 150%;
+        height: 246px;
+
+        margin: auto auto 0;
+        left: -25%;
+        right: 0;
+        top: 0;
+        bottom: 40px;
+    }
+
     .main-image-inner{
         max-width: 730px;
         width: 100%;
@@ -144,9 +248,12 @@
         @include lg{
             max-width: 544px;
         }
-    }
-    @include lg{
-        max-width: 808px;
+        @include md{
+            max-width: 383px;
+        }
+        @include xs{
+            max-width: 239px;
+        }
     }
 }
 
@@ -226,13 +333,22 @@
     border-radius: 20px;
     outline: none;
 
+    font-family: 'Montserrat';
     font-weight: 500;
     font-size: 1.125rem;
     color: #000;
+
+    &::placeholder {
+        color: black;
+        opacity: 1; /* Firefox */
+      }
+      
+    &::-ms-input-placeholder { /* Edge 12 -18 */
+        color: black;
+      }
 }
 
 #terms{
-    margin-top: 35px;
     padding-left: 25px;
     position: relative;
 
@@ -287,4 +403,9 @@
         -ms-transform: rotate(45deg);
         transform: rotate(45deg);
     }
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
 }
