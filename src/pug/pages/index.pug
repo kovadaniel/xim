@@ -50,3 +50,22 @@ block content
 					]
 				- for (var card of cards)
 					include ../parts/product-card
+
+	section#contacts-section
+		.container
+			.contacts-header
+				.contacts-title Напиши нам
+				.contacts-subtitle Мы свяжемся с Вами в самое ближайшее время
+			form.contacts-form
+				input(type="text" placeholder="Как к Вам обращаться?" required).prime-input
+				input(
+					type="tel" 
+					placeholder="Телефон*"  
+					pattern='[\+]\d[\(]\d{3}[\)]\d{3}[\-]\d{2}[\-]\d{2}' 
+					title='Формат +7(999)999-99-99'
+					required).prime-input
+				button(type="submit").button Отправить
+			label#terms Ознакомлен(а) с <a href="/" id="terms-ref">пользовательским соглашением</a>
+				input(type="checkbox").checkbox
+				span(class="checkmark").checkmark
+	

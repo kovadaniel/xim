@@ -10,6 +10,10 @@
         .navbar__list-item{
             margin-right: 82px;
 
+            @include lg{
+                margin-right: 40px;
+            }
+
             &:last-child{
                 margin-right: 0;
             }
@@ -38,12 +42,10 @@
     cursor: pointer;
     transition: all .3s ease;
 
-    span{
-        font-size: 1.125rem;
-        font-weight: bold;
-        color: white;
-        transition: inherit;
-    }
+    font-family: 'Inter', sans-serif!important;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: white;
 }
 
 .footer-contact{
@@ -75,15 +77,25 @@
 .big-logo{
     display: flex;
     flex-direction: column;
+    background-image: url('../resources/images/big-XIM-01.png');
+    background-size: cover;
+    background-position: center;
+
     width: 563px;
     height: 423px;
-    background-image: url('../resources/images/big-XIM-01.png');
     padding: 267px 31px 0;
+
+    @include lg{
+        width: 458px;
+        height: 344px;
+        padding: 220px 0 0;
+    }
 
     .big-logo__text{
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
 
         .big-logo__title{
             font-family: "Montserrat";
@@ -94,6 +106,8 @@
             font-family: "Montserrat";
             font-weight: 800;
             font-size: 2rem;
+            margin: 0 -30px;
+
         }
         &::before{
             content: "";
@@ -126,6 +140,13 @@
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
+
+        @include lg{
+            max-width: 544px;
+        }
+    }
+    @include lg{
+        max-width: 808px;
     }
 }
 
@@ -178,6 +199,9 @@
     border: 5px solid #ACACAC;
     border-radius: 11.4%;
 
+    text-decoration: none;
+    color: black;
+
     .product-card__image{
         max-width: 70%;
         max-height: 30%;
@@ -190,5 +214,77 @@
         font-size: 16px;
         text-transform: uppercase;
         text-align: center;
+    }
+}
+
+.prime-input{
+    max-width: 585px;
+    width: 100%;
+    margin-right: 57px;
+    padding: 28px 37px;
+    border: 3px solid #D6D6D6;
+    border-radius: 20px;
+    outline: none;
+
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: #000;
+}
+
+#terms{
+    margin-top: 35px;
+    padding-left: 25px;
+    position: relative;
+
+    font-size: 1.125rem;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+
+    a{
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .checkbox {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    
+    .checkmark {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 14px;
+        width: 14px;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: 1px solid #fff;
+    }
+    
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    
+    .checkbox:checked ~ .checkmark:after {
+        display: block;
+    }
+  
+    .checkmark:after {
+        left: 3px;
+        top: .5px;
+        width: 3px;
+        height: 6px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
     }
 }

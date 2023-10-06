@@ -1,23 +1,19 @@
-$fix: 40px;
+$xl-grid: 1598px; // 1598px
+$lg-grid: 1221px; // 1340px
+$md-grid: 674px; // 768px
+$xxs-grid: 295px; // 320px
 
-$xl-grid: 1589px;
-$lg-grid: 1300px;
-$md-grid: 728px;
-$xxs-grid: 2800px;
-
-$xl: $xl-grid + $fix;
-$lg: $lg-grid + $fix;
-$md: $md-grid + $fix;
-$xxs: $xxs-grid + $fix;
+$xl: $xl-grid + 322px; // to 1920px
+$lg: $lg-grid + 119px; // to 1340px
+$md: $md-grid + 94px; // to 768px
+$xxs: $xxs-grid + 25px; // to 320px
 
 @mixin media-base($min, $max) {
-
 	@media only screen
 		and (min-width: $min)
 		and (max-width: calc($max - .2px)) {
 
 		@content;
-
 	}
 }
 
@@ -41,20 +37,6 @@ $xxs: $xxs-grid + $fix;
 
 @mixin xxs {
 	@include media-base(0px, $md) {
-		@content;
-	}
-}
-
-/**/
-
-@mixin more-than-sm {
-	@media only screen and (min-width: $md) {
-		@content;
-	}
-}
-
-@mixin sm-and-less {
-	@media only screen and (max-width: calc($md - .2px)) {
 		@content;
 	}
 }
