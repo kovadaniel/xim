@@ -1,0 +1,76 @@
+@mixin base-button{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    background-color: $orange;
+    border: 0;
+
+    font-family: 'Inter', sans-serif!important;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.button-more{
+    @include base-button;
+
+    padding: 17px 75px; // 19px 71px
+    border-radius: 12px;
+    font-size: 1.25rem;
+
+    @include md{
+        padding: 6px 43px 8px; // 19px 71px
+        border-radius: 5px;
+        font-size: .875rem;
+    }
+
+    @include xs{
+        padding: 6px 42.5px 8px; // 19px 71px
+        border-radius: 5px;
+        font-size: .875rem;
+    }
+}
+
+.button-join{
+    @include base-button;
+
+    border-radius: 12px;
+    padding: 17px 51px; // 19px 49px
+
+    @include md{
+        padding: 8px 35px;
+        border-radius: 5px;
+        font-size: .875rem;
+    }
+    @include xs{
+        padding: 5.5px 30.5px;
+        border-radius: 5px;
+        font-size: .625rem;
+    }
+}
+
+.button-send{
+    @include base-button;
+
+    @include xl{
+        padding: 35px 100px 37px;
+        border-radius: 20px;
+        font-size: 1.25rem; // 20px
+    }
+    @include lg{
+        padding: 25.5px 67px;
+        border-radius: 20px;
+        font-size: 0.875rem; // 14px
+    }
+    @include md{
+        padding: 12.5px 56px;
+        border-radius: 10px;
+        font-size: 0.875rem; // 14px
+    }
+    @include xs{
+        padding: 13px 57px;
+        border-radius: 10px;
+        font-size:  0.6875rem; // 11px
+    }
+}

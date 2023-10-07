@@ -9,3 +9,30 @@ $xl-main-section-height: 933px;
 $lg-main-section-height: 698px;
 $md-main-section-height: 516px;
 $xs-main-section-height: 595px;
+
+@mixin base-font-sizing{
+    @include xl{
+        font-size: 1.125rem; // 18px
+    }
+    @include lg{
+        font-size: .875rem;  // 14px
+    }
+    @include md{
+        font-size: .875rem;; // 14px
+    }
+    @include xs{
+        font-size: .625rem; // 10px
+    }
+} 
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    10%{
+        transform: translateY(-10%);
+    }
+    40%{
+        transform: translateY(0);
+    }
+}

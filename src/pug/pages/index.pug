@@ -19,7 +19,7 @@ block content
 			include ../parts/section-title
 			.content
 				video(width="100%" height="100%" controls="controls").about-video
-				.button Узнать больше
+				.button-more Узнать больше
 				p.about-description 
 					| Мы предлагаем заказчикам широкий ассортимент первоклассной продукции от мировых 
 					| производителей. Подбор, поставки, консультации в сфере смазок в различных отраслях 
@@ -27,13 +27,13 @@ block content
 					| синтетических масел. Моторные масла, трансмиссионные и редукторные масла, 
 					| гидравлические масла и многое другое — это наша специальность!
 					
-
 	section#products-section
 		-var sectionTitle="Наша продукция"
 		include ../parts/section-title
-		.products-image-outer
-			.products-image-inner
-		.button Узнать больше
+		.products-image
+			.products-image-outer
+				.products-image-inner
+		.button-more Узнать больше
 
 		.container
 			.products
@@ -42,7 +42,7 @@ block content
 						{title: 'Масла для легковых автомобилей', src: 'car.png'},
 						{title: 'Масла для коммерческой техники', src: 'track.png'},
 						{title: 'Масла индустриальные гост', src: 'plant.png'},
-						{title: 'Масла гидравлические', src: 'hydraulics.png'},
+						{title: 'Масла гидравлические', src: 'excavator.png'},
 						{title: 'Стекломывающая жикость', src: 'windglass.png'},
 						{title: 'Масла для малоразмерной техники', src: 'moto.png'},
 						{title: 'Масло ГУР', src: 'rudder.png'},
@@ -65,9 +65,10 @@ block content
 						pattern='[\+]\d[\(]\d{3}[\)]\d{3}[\-]\d{2}[\-]\d{2}' 
 						title='Формат +7(999)999-99-99'
 						required).prime-input
-					button(type="submit").button Отправить
 				.row
 					label#terms Ознакомлен(а) с <a href="/" id="terms-ref">пользовательским соглашением</a>
 						input(type="checkbox").checkbox
 						span(class="checkmark").checkmark
+					button(type="submit").button-send Отправить
+
 	

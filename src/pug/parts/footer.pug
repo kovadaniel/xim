@@ -2,16 +2,17 @@ footer#footer
 	.footer__header
 		.container
 			include navbar.pug
-			button.button
+			button.button-join
 				span Стать партнёром
 	.footer__body
 		.container 
-			.footer__info 
+			.footer-info 
 				span ГК ОКТЕН © 2023
-			.footer__info
+			.footer-info
 				span ИНН: 6949115461
 				span ОГРНИП: 1216900014198
-			.footer__contacts
+			a(href="#").to-top
+			.footer-contacts
 				-
 					var contactIcon = 'call.png';
 					var contactTitle = 'Телефон';
