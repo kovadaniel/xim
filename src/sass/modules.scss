@@ -1,3 +1,23 @@
+#site-logo{
+    position: relative;
+    width: 154px;
+    height: 88px;
+    margin-bottom: 15px;
+    z-index: 2;
+
+    @include md{
+        width: 97px;
+        height: 55px;
+        margin-bottom: 7px;
+
+    }
+    @include xs{
+        width: 51px;
+        height: 29px;    
+        margin-bottom: 4px;
+    }
+}
+
 .navbar{
     display: flex;
     align-items: center;
@@ -12,11 +32,13 @@
     .navbar__list{
         display: flex;
         list-style: none;
-        padding: 0 29px;
+        padding: 0;
+        margin-bottom: 0;
 
         .navbar__list-item{
-            margin-right: 82px;
-
+            @include xl{
+                margin-right: 82px;
+            }
             @include lg{
                 margin-right: 40px;
             }
@@ -38,25 +60,63 @@
 
 #burger{
     margin-left: 27px;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
+    z-index: 2;
     cursor: pointer;
 
-    @include lg{
-        display: none;
+    @include md{
+        display: flex;
     }
-    @include xl{
+    @include xs{
+        display: flex;
+    }
+    &.disable{
         display: none;
     }
 
     i{
         display: block;
-        width: 31px;
-        height: 4px;
         background-color: #000;
-        border-radius: 2px;
-        margin: 4.5px 0;
+        @include md{
+            width: 27px;
+            height: 3px;
+            margin: 3.5px 0;
+            border-radius: 3px;
+
+        }
+        @include xs{
+            width: 17px;
+            height: 2px;
+            margin: 2.5px 0;
+            border-radius: 2px;
+
+        }
+    }
+
+    &.open{
+        i{
+            @include md{
+                width: 39px;
+                height: 3px;
+            }
+            @include xs{
+                width: 24px;
+                height: 2px;
+            }
+            border-radius: 2px;
+            background-color: #000;
+            &:nth-child(1){
+                transform: rotate(45deg) translate(15%);
+            }
+            &:nth-child(3){
+                transform: rotate(-45deg) translate(15%);
+            }
+            &:nth-child(2){
+                display: none;
+            }
+        }
     }
 }
 

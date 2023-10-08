@@ -7,15 +7,18 @@
 }
 
 #header{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
     flex-grow: 0;
-    height: $xl-header-height;
     box-shadow: 0px 0px 20px rgba($color: black, $alpha: .2);
     
+    @include xl{
+        height: $xl-header-height; 
+    }
     @include lg{
         height: $lg-header-height;  
     }
@@ -26,29 +29,28 @@
         height: $xs-header-height;
     }
 
-
-    .site-logo{
-        width: 154px;
-        height: 88px;
-        margin-bottom: 15px;
-
-        @include md{
-            width: 97px;
-            height: 55px;
-        }
-        @include xs{
-            width: 51px;
-            height: 29px;
-        }
-    }
+    /*
+    #site-logo{
+        z-index: 2;
+    }*/
 
     .container{
         justify-content: space-between;
+
+        .navbar{
+            @include md{
+                display: none;
+            }
+            @include xs{
+                display: none;
+            }
+        }
 
         .header__actions{
             display: flex;
             align-items: center;
         }
+
     }
 }
 
@@ -79,10 +81,18 @@
         @include xs{
             height: 42px;
         }
-
-        .navbar__ref{
-            color: white;
+        .navbar{
+            @include md{
+                display: none;
+            }
+            @include xs{
+                display: none;
+            }
+            .navbar__ref{
+                color: white;
+            }
         }
+
 
         .button-join{
             background-color: white;
@@ -565,4 +575,151 @@
             }
         }
     }
+}
+
+#burger-menu{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    transition:  all .3s ease;
+    overflow-y: hidden;
+
+    @include xl{
+        display: none;
+    }
+    @include lg{
+        display: none;
+    }
+    @include md{
+        &.show{
+            height: auto;
+            min-height: 737px;
+        }
+    }
+    @include xs{
+        &.show{
+            height: auto;
+            min-height: 378px;
+        }
+    }
+
+    .close{
+        position: absolute;
+        top: 5%;
+    }
+
+    .burger-menu-background{
+        width: calc(100% + 12px); // 12px to trim side-shaow at big scale
+        object-fit: fill;
+        object-position: center;
+        margin-top: -6px;
+        margin-left: -6px;
+        margin-right: -6px;
+
+        //backdrop-filter: blur(10px); // !!!
+    }
+    #burger-menu-background-big{
+        display: block;
+        height: 750px;
+        @include xs{
+            display: none;
+        }
+    }
+    #burger-menu-background-small{
+        display: none;
+        height: 398px;
+        @include xs{
+            display: block;
+        }
+    }
+
+    #burger-container{
+        position: absolute;
+        top: 0;
+        margin-left: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        overflow: hidden;
+        width: 100%;
+
+
+        @mixin burger-menu-item-margin-right{
+            @for $i from 1 through 5 {
+              &:nth-child(#{$i}) {
+                @include md{
+                    margin-right: calc(9% * ($i - 1));
+                }
+                @include xs{
+                    margin-right: calc(8% * ($i - 1));
+                }
+              }
+            }
+        }
+
+        $navbar-list-mr: 20%;
+        $navbar-list-xs: 17%;
+    
+        & > .navbar{
+            display: flex;
+            justify-content: end;
+            width: 100%;
+            
+            .navbar__list{
+                flex-direction: column;
+                width: 100%;
+                @include md{
+                    margin-top: 148px;
+                    margin-right: $navbar-list-mr;
+                }
+                @include xs{
+                    margin-top: 73px;
+                    margin-right: $navbar-list-xs;
+                }
+    
+                .navbar__list-item{
+                    @include burger-menu-item-margin-right;
+    
+                    @include md{
+                        margin-bottom: 60px;
+                    }                        
+                    @include xs{
+                        margin-bottom: 32px;
+                    }
+                    text-align: end;
+    
+                    .navbar__ref{
+                        font-family: 'Inter';
+                        font-weight: 600;
+
+                        @include md{
+                            font-size: 1.75rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        & > .button-join{
+            margin-bottom: 20px;
+            @include md{
+                margin-right: 57%;
+                padding: 25.5px 67px;
+                border-radius: 20px;
+                font-size: 0.875rem; // 14px
+            }
+            @include xs{
+                margin-right: 47%;
+            }
+        }
+    }
+    
+
+    
 }

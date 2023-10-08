@@ -1,5 +1,15 @@
 .burger-menu#burger-menu
-	| Бургер
+	img.burger-menu-background#burger-menu-background-big(src="../../resources/images/header-slide-menu-big.png")
+	img.burger-menu-background#burger-menu-background-small(src="../../resources/images/header-slide-menu-small.png")
+
+
+	#burger-container
+		//include ../parts/close
+		include navbar
+		button.button-join Стать партнером
+	
+	//-	| Бургер
+	
 	//- ul.burger-menu__nav
 	//- 	li
 	//- 		a(href="/one.html")
