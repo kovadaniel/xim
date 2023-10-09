@@ -33,26 +33,27 @@
         display: flex;
         list-style: none;
         padding: 0;
-        margin-bottom: 0;
+        margin: 0;
+        height: 100%;
 
         .navbar__list-item{
-            @include xl{
-                margin-right: 82px;
-            }
-            @include lg{
-                margin-right: 40px;
-            }
-
-            &:last-child{
-                margin-right: 0;
-            }
-
+            display: flex;
+            align-items: center;
             .navbar__ref{
+                display: flex;
+                align-items: center;
                 font-family: "Montserrat";
                 font-weight: 600;
                 font-size: 1.125rem; // 18px
                 text-decoration: none;
                 color: black;
+
+                @include xl{
+                    padding: 30px 41px;
+                }
+                @include lg{
+                    padding: 15px 20px;
+                }
             }  
         }
     }
@@ -339,7 +340,7 @@
     }
 }
 
-.products-image{
+.products-section__image{
     position: relative;
     display: flex;
     align-items: end;
@@ -361,7 +362,7 @@
         margin-bottom: 54px;
         height: 223px;
     }
-    .products-image-outer{
+    #front-image{
         display: flex;
         justify-content: center;
         align-items: end;
@@ -386,11 +387,10 @@
         }
 
 
-        .products-image-inner{
+        #back-image{
             position: absolute;
             bottom: -10.5%;
             max-width: 705px;
-            //width: 100%;
             background-image: url('../resources/images/oil-bottles.png');
             background-repeat: no-repeat;
             background-position: center;
@@ -419,6 +419,60 @@
     }
 }
 
+// image of oil on about-page in common-section
+.stat-section__image{
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    margin-right: -20%;
+    height: fit-content;
+    //overflow: hidden;
+
+    @include xl{
+        top: 376px;
+        width: 100%;
+    }
+    @include lg{
+        top: 261px;
+    }
+    @include md{
+        top: 305px;
+    }
+    @include xs{
+        top: 111px;
+        
+    }
+
+    .stat-section__image-back{
+        background-image: url('../resources/images/oil-2.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        @include xl{
+            min-width: 3269px;
+            width: 100%;
+            min-height: 1420px; //1420px;
+            height: 59.5vw;
+        }
+        @include lg{
+            width: 2515px;
+            height: 1114px;
+        }
+        @include md{
+            width: 1466px;
+            height: 632px;
+        }
+        @include xs{
+            width: 743px;
+            height: 484px;
+        }
+    } 
+}
+
 .horizontal{
     display: block;
     margin: 0 auto;
@@ -427,46 +481,89 @@
     background-color: #c5c5c5;
 }
 
+@mixin title-font-sizes{
+    @include xl{
+        font-size: 3rem;
+    }
+    @include lg{
+        font-size: 2.5rem;
+    }
+    @include md{
+        font-size: 2rem;
+    }
+    @include xs{
+        font-size: 1.5rem;
+    }
+}
+@mixin title-sub-font-sizes{
+    @include xl{
+        font-size: 2rem;
+    }
+    @include lg{
+        font-size: 2rem;
+    }
+    @include md{
+        font-size: 2.25rem;
+    }
+    @include xs{
+        font-size: 1rem;
+    }
+}
+
 .section-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .section-title__title{
+        @include title-font-sizes;
+
+        margin: 0;
+        width: auto;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .section-title__subtitle{
+        @include title-sub-font-sizes;
+        margin: 0;
+        display: flex;
+        align-items: end;
+        padding-top: 24px;
+        font-weight: 500;
+    }
+    
+    &::after{
+        content: "";
+        display: block;
+        margin-top: 12px;
+        margin-left: -5%;
+        margin-right: -5%;
+        height: 3px;
+        width: 100%;
+        background-color: $orange;
+
+        @include xs{
+            margin-top: 7px;
+        }
+    }
+}
+
+.section-subtitle{
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .section-title-text{
+    .section-subtitle__text{
+        @include title-font-sizes;
+
+        margin: 0;
         width: auto;
+        align-items: center; 
         font-family: 'Montserrat';
         font-weight: bold;
-        margin: 0;
-
-        @include xl{
-            font-size: 3rem;
-        }
-        @include lg{
-            font-size: 2.5rem;
-        }
-        @include md{
-            font-size: 2rem;
-        }
-        @include xs{
-            font-size: 1.5rem;
-        }
-
-        &::after{
-            content: "";
-            display: block;
-            margin-top: 12px;
-            margin-left: -5%;
-            margin-right: -5%;
-            height: 3px;
-            background-color: $orange;
-            background-position: top top;
-            background-size: contain;
-            background-repeat: no-repeat;
-
-            @include xs{
-                margin-top: 7px;
-            }
-        }
+        text-transform: uppercase;
     }
 }
 
@@ -665,6 +762,9 @@
 }
 
 .to-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 55px;
     height: 55px;
     border-radius: 50%;
@@ -687,5 +787,221 @@
 
     &:hover{
         animation: 1.5s infinite jump;
+    }
+}
+
+.stat-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 3px 3px rgba($color: #000, $alpha: .3);
+
+    @include xl{
+        padding: 60px 25px;
+        width: 491px;
+        height: 361px;
+        border: 5px solid #D6D6D6;
+        border-radius: 12px;
+    }
+    @include lg{
+        padding: 46px 33px;
+        width: 376px;
+        height: 283px;
+        border: 5px solid #D6D6D6;
+        border-radius: 12px;
+    }
+    @include md{
+        padding: 28px 22px;
+        width: 204px;
+        height: 173px;
+        border: 3px solid #D6D6D6;
+        border-radius: 9px;
+    }
+    @include xs{
+        padding: 22px 13px;
+        width: 140px;
+        height: 100px;
+        border: 2px solid #D6D6D6;
+        border-radius: 7px;
+    }
+
+    .stat-card__icon{
+        @include xl{
+            margin-bottom: 41px;
+            max-height: 71px;
+        }
+        @include lg{
+            margin-bottom: 52px;
+            max-height: 55px;
+        }
+        @include md{
+            margin-bottom: 28px;
+            max-height: 26px;
+        }
+        @include xs{
+            margin-bottom: 7px;
+            max-height: 15px;
+        }
+    }
+    
+    .stat-card__text{
+        text-align: center;
+        font-weight: 600;
+        @include xl{
+            font-size: 2rem;
+        }
+        @include lg{
+            font-size: 1.5rem;
+        }
+        @include md{
+            font-size: 1rem;
+        }
+        @include xs{
+            font-size: .625rem; // 10px
+        }
+    }
+}
+
+.paragraph{
+    @include xl{
+        margin-bottom: 15px;
+    }
+    @include lg{
+        margin-bottom: 38px;
+    }
+    @include md{
+        margin-bottom: 25px;
+    }
+    @include xs{
+        margin-bottom: 26px;
+    }
+
+    .paragraph__title{
+        margin: 0;
+        color: #204D6C;
+        font-weight: bold;
+        @include xl{
+            font-size: 2rem;
+            line-height: 3.1875rem; // 51px
+        }
+        @include lg{
+            font-size: 2rem;
+            line-height: 3.1875rem;
+        }
+        @include md{
+            font-size: 1rem;
+            line-height: 1.5625rem; // 25px
+        }
+        @include xs{
+            font-size: .625rem; // 10px
+            line-height: .625rem; // 10px
+        }
+    }
+    .paragraph__text{
+        margin: 0;
+        font-weight: 500;
+        text-align: justify;
+        word-break: break-word;
+        @include xl{
+            font-size: 1.5rem;
+            line-height: 3.1875rem; // 51px
+        }
+        @include lg{
+            font-size: 1.5rem;
+            line-height: 3.1875rem; // 51px
+        }
+        @include md{
+            font-size: .875rem; // 14px
+            line-height: 1.5625rem; // 25px
+        }
+        @include xs{
+            font-size: .625rem; // 10px
+            line-height: .625rem; // 10px
+            text-align: unset;
+
+        }
+    }
+}
+
+.numbered-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .numbered-list__item{
+        display: flex;
+        align-items: center;
+
+        @include xl{
+            margin-bottom: 123px;
+        }
+        @include lg{
+            margin-bottom: 121px;
+        }
+        @include md{
+            margin-bottom: 85px;
+        }
+        @include xs{
+            margin-bottom: 20px;
+        }
+
+        &:last-child{
+            margin-bottom: 0;
+        }
+
+        .numbered-list__number{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            border-radius: 50%;
+
+            @include xl{
+                margin-right: 50px;
+                width: 140px;
+                height: 140px;
+                border: 10px solid #204D6C;
+                font-size: 4rem;
+            }
+            @include lg{
+                margin-right: 34px;
+                width: 110px;
+                height: 110px;
+                border: 10px solid #204D6C;
+                font-size: 4rem;
+            }
+            @include md{
+                margin-right: 15px;
+                width: 72px;
+                height: 72px;
+                border: 2.5px solid #204D6C;
+                font-size: 2.5rem;
+            }
+            @include xs{
+                margin-right: 25px;
+                width: 54px;
+                height: 54px;
+                border: 3px solid #204D6C;
+                font-size: 2rem;
+            }
+        }
+
+        .numbered-list__text{
+            flex-shrink: 1;
+            @include xl{
+                font-size: 2rem;
+            }
+            @include lg{
+                font-size: 1.875rem;
+            }
+            @include md{
+                font-size: 1.25rem;
+            }
+            @include xs{
+                font-size: .875rem;
+            }
+        }
     }
 }

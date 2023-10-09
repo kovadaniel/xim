@@ -6,50 +6,51 @@ block vars
 	- const keywords = ''
 
 block content
-	.container 
-		section#main-section
-			include ../parts/big-logo
-			.main-image-outer
-				.main-image-inner
-
-		.horizontal
-
-		section#about-section
-			- var sectionTitle="О компании"
-			include ../parts/section-title
-			.content
-				video(width="100%" height="100%" controls="controls").about-video
-				.button-more Узнать больше
-				p.about-description 
-					| Мы предлагаем заказчикам широкий ассортимент первоклассной продукции от мировых 
-					| производителей. Подбор, поставки, консультации в сфере смазок в различных отраслях 
-					| промышленности. <strong class="strong">XIM</strong> поможет вам не запутаться в разнообразии всех минеральных и 
-					| синтетических масел. Моторные масла, трансмиссионные и редукторные масла, 
-					| гидравлические масла и многое другое — это наша специальность!
-					
-	section#products-section
-		-var sectionTitle="Наша продукция"
-		include ../parts/section-title
-		.products-image
-			.products-image-outer
-				.products-image-inner
-		.button-more Узнать больше
-
+	.main-wrapper
 		.container
-			.products
-				- 
-					cards = [
-						{title: 'Масла для легковых автомобилей', src: 'car.png'},
-						{title: 'Масла для коммерческой техники', src: 'track.png'},
-						{title: 'Масла индустриальные гост', src: 'plant.png'},
-						{title: 'Масла гидравлические', src: 'excavator.png'},
-						{title: 'Стекломывающая жикость', src: 'windglass.png'},
-						{title: 'Масла для малоразмерной техники', src: 'moto.png'},
-						{title: 'Масло ГУР', src: 'rudder.png'},
-						{title: 'Охлаждающие жидкости', src: 'coolant.png'},
-					]
-				- for (var card of cards)
-					include ../parts/product-card
+			section#main-section
+				include ../parts/big-logo
+				.main-image-outer
+					.main-image-inner
+
+			.horizontal
+
+			section#about-section
+				- var sectionTitle = {title: "О компании"}
+				include ../parts/section-title
+				.content
+					video(width="100%" height="100%" controls="controls").about-video
+					.button-more Узнать больше
+					p.about-description 
+						| Мы предлагаем заказчикам широкий ассортимент первоклассной продукции от мировых 
+						| производителей. Подбор, поставки, консультации в сфере смазок в различных отраслях 
+						| промышленности. <strong class="strong">XIM</strong> поможет вам не запутаться в разнообразии всех минеральных и 
+						| синтетических масел. Моторные масла, трансмиссионные и редукторные масла, 
+						| гидравлические масла и многое другое — это наша специальность!
+						
+		section#products-section
+			-var sectionTitle= {title: "Наша продукция"}
+			include ../parts/section-title
+			.products-section__image
+				#front-image
+					#back-image
+			.button-more Узнать больше
+
+			.container
+				.products
+					- 
+						cards = [
+							{title: 'Масла для легковых автомобилей', src: 'car.png'},
+							{title: 'Масла для коммерческой техники', src: 'track.png'},
+							{title: 'Масла индустриальные гост', src: 'plant.png'},
+							{title: 'Масла гидравлические', src: 'excavator.png'},
+							{title: 'Стекломывающая жикость', src: 'windglass.png'},
+							{title: 'Масла для малоразмерной техники', src: 'moto.png'},
+							{title: 'Масло ГУР', src: 'rudder.png'},
+							{title: 'Охлаждающие жидкости', src: 'coolant.png'},
+						]
+					- for (var card of cards)
+						include ../parts/product-card
 
 	section#contacts-section
 		.container

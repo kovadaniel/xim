@@ -1,0 +1,5 @@
+ul.numbered-list
+    - for (var i = 0; i < listItems.length; i++)
+        li.numbered-list__item 
+            .numbered-list__number #{i+1}
+            .numbered-list__text #{listItems[i]}

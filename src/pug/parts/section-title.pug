@@ -1,2 +1,4 @@
 .section-title
-    h2.section-title-text #{sectionTitle}
+    h2.section-title__title #{sectionTitle.title}
+    if sectionTitle.sub
+        h6.section-title__subtitle #{sectionTitle.sub}

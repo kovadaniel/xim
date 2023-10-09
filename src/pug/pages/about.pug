@@ -1,10 +1,65 @@
 extends ../templates/common
 
 block vars
-	- const title = 'О нас'
+	- var title = ""
+	-
+		var stats = [
+			{ icon: "../../resources/images/10000+.png", text: "производственная мощность"},
+			{ icon: "../../resources/images/1500.png", text: "производственных площадей"},
+			{ icon: "../../resources/images/200+.png", text: "позиций в линейке продукции"},
+		]
+		var missions = [
+			{ title: "XIM", text: "является сертифицированным производителем смазочных материалов на территории России. Компания специализируется на разработке и производстве высококачественных масел и для автомобилей, промышленного оборудования и сельскохозяйственной техники. "},
+			{ title: "Наша миссия", text: "снабжать наших клиентов высококачественными смазочными материалами, которые могут существенно увеличить срок службы оборудования, его производительность и снизить затраты на обслуживание. "},
+			{ title: "Мы используем", text: "только высококачественные ингредиенты, а также самые современные технологии выпуска и контроля качества, чтобы обеспечить полную защиту оборудования наших клиентов от износа и коррозии, снизить потерю энергии и предотвратить поломки и неисправности."},
+			{ title: "Наша компания", text: "предлагает широкий ассортимент смазочных материалов, которые отвечают самым высоким стандартам качества. Мы производим масла и автохимию для всех типов двигателей и механизмов, включая моторные, трансмиссионные, гидравлические, редукторные и другие"},
+			{ title: "Мы готовы", text: "предоставить нашим клиентам наилучший сервис и консультацию в выборе и использовании наших продуктов, а также гарантировать качество продаваемой продукции."},
+			{ title: "Мы стремимся", text: "к тому, чтобы каждый клиент получал наилучший результат от использования нашей продукции. Опытная и профессиональная команда специалистов готовы помочь вам в любой ситуации. Вы можете быть уверены, что с нами вы получите продукцию высочайшего качества и лучший сервис."},
+		]
+		var advantages = [
+			'Современная лаборатория',
+			'Контроль качества сырья и готовой продукции',
+			'Инновационный метод смешивания',
+		]
 
 block content
+	.about-wrapper
+		.stat-section__image
+			.stat-section__image-back
+		.container
+			section#common-section
+				- var sectionTitle = {title: "О компании"}
+				include ../parts/section-title
+				video(width="100%" height="100%" controls="controls").about-video
 
-	article.container.article
-		h1.focus-title #{title}
-		p О нашей компании в двух словах.
+			section#stats-section
+				- var sectionSubtitle="XIM в цифрах"
+				include ../parts/section-subtitle
+				.stats
+					each stat in stats
+						include ../parts/stat-card
+				
+			section#missions-section
+				- var p = missions[0];
+				include ../parts/paragraph
+
+				img(src="../../resources/images/diploma.png", alt="certificate").diploma
+
+				- for (var i = 1; i < missions.length; i++)
+					- var p = missions[i];
+					include ../parts/paragraph
+
+			section#abvantages-section
+				- var sectionTitle = {title: "Почему мы", sub: "Преимущества работы с нами"}
+					include ../parts/section-title
+
+				div#abvantages
+					- var listItems = advantages;
+					include ../parts/numbered-list
+
+				div#workflow-images
+					img(src="../../resources/images/workflow-1.png", alt="working process").workflow-image
+					img(src="../../resources/images/workflow-2.png", alt="working process").workflow-image
+					img(src="../../resources/images/workflow-3.png", alt="working process").workflow-image
+
+					

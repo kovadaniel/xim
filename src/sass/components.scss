@@ -1,5 +1,13 @@
 @import "common.scss";
 
+@mixin background{
+    background-image: url('../resources/images/background.png');
+    background-position: center 3%;
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+// thw whole page wrapper
 #wrapper{
     display: flex;
     flex-direction: column;
@@ -93,7 +101,6 @@
             }
         }
 
-
         .button-join{
             background-color: white;
             @include xl{
@@ -116,7 +123,6 @@
                 color: $orange;
             }
         }
-
 
     }
 
@@ -169,6 +175,7 @@
                 }
                 @include xs{
                     margin-bottom: 6px;
+                    align-items: center;
                     font-size: .75rem; // 12px
                 }
 
@@ -258,325 +265,22 @@
     
 }
 
-#main{
+// main page and about page wrappers for background
+.main-wrapper, .about-wrapper{
+    @include background;
+
     position: relative;
     min-height: 500px;
     flex-grow: 1;
     overflow: hidden;
-    
-    background-image: url('../resources/images/background.svg');
-    background-position: center 3%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    z-index: 0;
 
     .container{
         flex-direction: column;
     }
 }
 
-#main-section{
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @include xl{
-        margin: 0 -23px 0 -40px;
-        padding: 164px 0 156px;
-        min-height: $xl-main-section-height;
-    }
-    
-    @include lg{
-        padding: 133px 0 110px;
-        min-height: $lg-main-section-height;
-    }
-    @include md{
-        padding: 81px 0 42px;
-        min-height: $md-main-section-height;
-    }
-    @include xs{
-        padding: 39px 0 40px;
-        min-height: $xs-main-section-height;
-    }
-
-}
-
-#about-section{
-    position: relative;
-    @include xl{
-        padding-top: 72px;
-        padding-bottom: 163px;
-    }
-    @include lg{
-        padding-top: 60px;
-        padding-bottom: 133px;
-    }
-    @include md{
-        padding-top: 47px;
-        padding-bottom: 148px;
-    }
-    @include xs{
-        padding-top: 39px;
-        padding-bottom: 134px;
-    }
-
-    .about-description{
-        width: 100%;
-        margin-top: 60px;
-        font-family: "Montserrat";
-        font-weight: 500;
-        font-size: 1.5rem;
-        line-height: 3.1875rem;
-        margin-bottom: 0;
-
-        @include xl{
-            display: block;
-            max-width: 470px;
-        }
-        @include md{
-            margin-top: 47px;
-            font-size: .875rem;
-            line-height: 1.5625rem; // 25px
-            text-align: justify;
-        }
-        @include xs{
-            margin-top: 26px;
-            font-size: .75rem;
-            line-height: 1.5625rem; // 25px
-            text-align: center;
-        }
-        .strong{
-            font-weight: bold;
-            @include xl{
-                font-size: 2rem;
-            }
-            @include lg{
-                font-size: 2rem;
-            }
-        }
-    }
-
-    .about-video{
-        float: right;
-
-        @include xl{
-            margin-left: 16px;
-            margin-bottom: 44px;
-            width: 1103px;
-            height: 595px;
-        }
-        @include lg{
-            margin-top: 16px;
-            margin-bottom: 41px;
-            margin-left: 16px;
-            width: 736px;
-            height: 399px;
-        }
-        @include md{
-            width: 100%;
-            height: 358px;
-            margin-bottom: 31px;
-        }
-        @include xs{
-            width: 100%;
-            margin-bottom: 13px;
-        }
-    }
-
-    .button-more{
-        float: right;
-        clear: both; 
-
-        @include xl{
-            margin-right: 806px;
-        }
-        @include lg{
-            margin-top: 16px;
-        }
-        @include md{
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            bottom: 82.5px;
-        }
-        @include xs{
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            bottom: 70px;
-        }
-    }
-}
-
-#products-section{
-
-    .button-more{
-        margin: 0px auto 0;
-        //padding: 19.5px 71px 19px 70px;
-    }
-
-    .products{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-
-        @include xl{
-            margin: 158px 0;
-            grid-gap: 44px 30px;
-        }
-        @include lg{
-            margin: 113px 0 61px;
-            grid-gap: 18px 22px;
-        }
-        @include md{
-            margin: 80px 0 66px;
-            grid-gap: 23px 45px;
-        }
-
-        @include xs{
-            margin: 104px 0 107px;
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px 29px;
-        }
-    }
-}
-
-#contacts-section{
-    background-image: url('../resources/images/bg-contacts.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    .container{
-        flex-direction: column;
-        align-items: start;
-        color: white;
-
-        @include xl{
-            padding-top: 85px;
-            padding-bottom: 114px;
-        }
-        @include lg{
-            padding-top: 33px;
-            padding-bottom: 64px;
-        }
-        @include md{
-            padding-top: 33px;
-            padding-bottom: 31px;
-        }
-        @include xs{
-            padding-top: 20px;
-            padding-bottom: 17px;
-        }
-
-        .contacts-header{
-            @include xl{
-                margin-bottom: 48px;
-            }            
-            @include lg{
-                margin-bottom: 34px;
-            }            
-            @include md{
-                margin-bottom: 34px;
-            }            
-            @include xs{
-                margin-bottom: 19px;
-                width: 100%;
-            }
-
-            .contacts-title{
-                font-weight: bold;
-                
-                @include xl{
-                    margin-bottom: 21px;
-                    font-size: 4rem;
-                }
-                @include lg{
-                    margin-bottom: 10px;
-                    font-size: 2.25rem;
-                }
-                @include md{
-                    margin-bottom: 10px;
-                    font-size: 2.25rem;
-                }
-                @include xs{
-                    margin-bottom: 8px;
-                    font-size: 1.5rem;
-                }
-            }
-
-            .contacts-subtitle{
-                font-weight: 500;
-
-                @include xl{
-                    margin-bottom: 21px;
-                    font-size: 2rem;
-                }
-                @include lg{
-                    margin-bottom: 9px;
-                    font-size: 1.25rem;
-                }
-                @include md{
-                    margin-bottom: 9px;
-                    font-size: 1.25rem;
-                }
-                @include xs{
-                    margin-bottom: 6px;
-                    font-size: .6875rem; // 11px
-                }
-            }
-
-            &::after{
-                content: "";
-                display: block;
-                width: 100%;
-                height: 3px;
-                background-color: $orange;
-            }
-        }    
-
-        .contacts-form{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-
-            .row{
-                @include md{
-                    flex-direction: column;
-                }
-                @include xs{
-                    flex-direction: column;
-                }
-            }
-
-            .prime-input{
-                @include md{
-                    margin-bottom: 22px;
-                }
-                @include xs{
-                    margin-bottom: 16px;
-                }
-            }
-        }
-
-        .button-send{
-            height: fit-content;
-            @include xl{
-                margin-top: -96px;
-                margin-left: auto;
-            }
-            @include lg{ 
-                margin-top: -69px;
-                margin-left: auto;
-            }
-        }
-    }
-}
-
+// opened burger (header) menu
 #burger-menu{
     display: flex;
     justify-content: end;
@@ -684,6 +388,8 @@
                 }
     
                 .navbar__list-item{
+                    justify-content: end;
+
                     @include burger-menu-item-margin-right;
     
                     @include md{
@@ -692,8 +398,7 @@
                     @include xs{
                         margin-bottom: 32px;
                     }
-                    text-align: end;
-    
+
                     .navbar__ref{
                         font-family: 'Inter';
                         font-weight: 600;
@@ -723,3 +428,4 @@
 
     
 }
+
