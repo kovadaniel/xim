@@ -21,6 +21,11 @@ block vars
 			'Контроль качества сырья и готовой продукции',
 			'Инновационный метод смешивания',
 		]
+		var labNotes = [
+			{ title: "Сертифицированные специалисты с большим опытом работы", icon: "lab-1.png"},
+			{ title: "Новое современное оборудование", icon: "lab-2.png"},
+			{ title: "Создание сложных продуктов в рамках импортозамещения", icon: "lab-3.png"},
+		]
 
 block content
 	.about-wrapper
@@ -30,7 +35,10 @@ block content
 			section#common-section
 				- var sectionTitle = {title: "О компании"}
 				include ../parts/section-title
-				video(width="100%" height="100%" controls="controls").about-video
+				
+				//-video(width="100%" height="100%" controls="controls").about-video
+				include ../parts/video
+
 
 			section#stats-section
 				- var sectionSubtitle="XIM в цифрах"
@@ -61,5 +69,21 @@ block content
 					img(src="../../resources/images/workflow-1.png", alt="working process").workflow-image
 					img(src="../../resources/images/workflow-2.png", alt="working process").workflow-image
 					img(src="../../resources/images/workflow-3.png", alt="working process").workflow-image
+
+		section#corp-excursion-section
+			.container
+				- var form = {title: 'Записаться на экскурсию'}
+				include ../parts/form
+
+		.container
+			section#lab-section
+				- var sectionTitle = {title: "Лаборатория"}
+				include ../parts/section-title
+				
+				- var imagedList = labNotes;
+				include ../parts/imaged-list
+
+
+
 
 					

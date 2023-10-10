@@ -1,9 +1,3 @@
-@mixin flex-column{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 // main page:
 
 #main-section{
@@ -104,7 +98,7 @@
         }
     }
 
-    .about-video{
+    .video{
         float: right;
 
         @include xl{
@@ -197,10 +191,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    .container{
-        @include flex-column;
-        color: white;
-
+    .form{
         @include xl{
             padding-top: 85px;
             padding-bottom: 114px;
@@ -216,110 +207,6 @@
         @include xs{
             padding-top: 20px;
             padding-bottom: 17px;
-        }
-
-        .contacts-header{
-            align-self: flex-start;
-            @include xl{
-                margin-bottom: 48px;
-            }            
-            @include lg{
-                margin-bottom: 34px;
-            }            
-            @include md{
-                margin-bottom: 34px;
-            }            
-            @include xs{
-                margin-bottom: 19px;
-                width: 100%;
-            }
-
-            .contacts-title{
-                font-weight: bold;
-                
-                @include xl{
-                    margin-bottom: 21px;
-                    font-size: 4rem;
-                }
-                @include lg{
-                    margin-bottom: 10px;
-                    font-size: 2.25rem;
-                }
-                @include md{
-                    margin-bottom: 10px;
-                    font-size: 2.25rem;
-                }
-                @include xs{
-                    margin-bottom: 8px;
-                    font-size: 1.5rem;
-                }
-            }
-
-            .contacts-subtitle{
-                font-weight: 500;
-
-                @include xl{
-                    margin-bottom: 21px;
-                    font-size: 2rem;
-                }
-                @include lg{
-                    margin-bottom: 9px;
-                    font-size: 1.25rem;
-                }
-                @include md{
-                    margin-bottom: 9px;
-                    font-size: 1.25rem;
-                }
-                @include xs{
-                    margin-bottom: 6px;
-                    font-size: .6875rem; // 11px
-                }
-            }
-
-            &::after{
-                content: "";
-                display: block;
-                width: 100%;
-                height: 3px;
-                background-color: $orange;
-            }
-        }    
-
-        .contacts-form{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-
-            .row{
-                @include md{
-                    flex-direction: column;
-                }
-                @include xs{
-                    flex-direction: column;
-                }
-            }
-
-            .prime-input{
-                @include md{
-                    margin-bottom: 22px;
-                }
-                @include xs{
-                    margin-bottom: 16px;
-                }
-            }
-        }
-
-        .button-send{
-            height: fit-content;
-            @include xl{
-                margin-top: -152px; //-96px;
-                margin-left: auto;
-            }
-            @include lg{ 
-                margin-top: -114px; //-69px;
-                margin-left: auto;
-            }
         }
     }
 }
@@ -373,10 +260,10 @@
         }
     }
 
-    .about-video{
+    .video{
         float: none;
         margin: 0;
-        width: 100%;
+        width: auto; // 100%;
 
         @include xl{
             height: 669px;
@@ -517,7 +404,7 @@
             }
         }
         @include lg{
-            margin-right: 133px;
+            margin-right: 98px; // 133px;
             float: right;
             align-items: baseline;
 
@@ -538,30 +425,29 @@
     #workflow-images{
         display: flex;
         flex-direction: column;
-        flex-grow: 0;
-
 
         @include xl{
-            width: 613px;
+            width: 623px; //613px;
         }
         @include lg{
-            width: 485px;
+            width: 536px; //485px;
         }
         @include md{
-            width: 279px;
+            width: 307px; // 279px;
         }
         @include xs{
-            height: 56px;
+            width: 100%;
             flex-direction: row;
             justify-content: center;
-            width: 100%;
-            height: 15.55vw;
 
         }
 
         .workflow-image{
-            min-height: 55px;
-            height: 15.55vw;
+            object-fit: contain;
+
+            @include xs{
+                width: 33.3%;
+            }
         }
     }
 
@@ -594,13 +480,72 @@
                 max-width: 882px;
             }
             @include lg{
-                max-width: 659px;
+                max-width: 609px; //659px;
             }
             @include md{
-                max-width: 378px;
+                max-width:  338px;//378px;
             }
             
         }
 
+    }
+}
+
+#corp-excursion-section{
+    background-color: #204D6C;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .form{
+        @include xl{
+            padding-top: 85px;
+            padding-bottom: 114px;
+        }
+        @include lg{
+            padding-top: 33px;
+            padding-bottom: 64px;
+        }
+        @include md{
+            padding-top: 33px;
+            padding-bottom: 31px;
+        }
+        @include xs{
+            padding-top: 20px;
+            padding-bottom: 17px;
+        }
+    }
+}
+
+#lab-section{
+    @include xl{
+        padding-top: 79px;
+        padding-bottom: 111px;
+    }
+    @include lg{
+        padding-top: 54px;
+        padding-bottom: 68px;
+    }
+    @include md{
+        padding-top: 42px;
+        padding-bottom: 42px;
+    }
+    @include xs{
+        padding-top: 28px;
+        padding-bottom: 38px;
+    }
+
+    .section-title{
+        @include xl{
+            margin-bottom: 79px;
+        }
+        @include lg{
+            margin-bottom: 62px;
+        }
+        @include md{
+            margin-bottom: 53px;
+        }
+        @include xs{
+            margin-bottom: 22px;
+        }
     }
 }

@@ -10,6 +10,12 @@ $lg-main-section-height: 698px;
 $md-main-section-height: 516px;
 $xs-main-section-height: 595px;
 
+@mixin flex-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @mixin base-font-sizing{
     @include xl{
         font-size: 1.125rem; // 18px

@@ -1,0 +1,4 @@
+ul.imaged-list
+    - for(item of imagedList) 
+        li.imaged-list__item #{item.title}
+            img(src=imgPath+item.icon, alt=item.title).imaged-list__icon

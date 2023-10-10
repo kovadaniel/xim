@@ -1,0 +1,19 @@
+.form
+    .form__header
+            .form__title #{form.title}
+            .form__subtitle Мы свяжемся с Вами в самое ближайшее время
+    form.form__form
+        .row
+            input(
+                type="text" 
+                placeholder="Как к Вам обращаться?" 
+                required).prime-input
+            input(
+                type="tel" 
+                placeholder="Телефон*"  
+                pattern='[\+]\d[\(]\d{3}[\)]\d{3}[\-]\d{2}[\-]\d{2}' 
+                title='Формат +7(999)999-99-99'
+                required).prime-input
+        .row
+            include ../parts/terms
+            button(type="submit").button-send Отправить
