@@ -36,8 +36,6 @@
 #about-section{
     position: relative;
 
-    @include flex-column;
-
     @include xl{
         padding-top: 72px;
         padding-bottom: 163px;
@@ -113,18 +111,18 @@
             margin-left: 16px;
             margin-bottom: 44px;
             width: 1103px;
-            height: 595px;
+            //height: 595px;
         }
         @include lg{
             margin-top: 16px;
             margin-bottom: 41px;
             margin-left: 16px;
             width: 736px;
-            height: 399px;
+            //height: 399px;
         }
         @include md{
             width: 100%;
-            height: 358px;
+            //height: 358px;
             margin-bottom: 31px;
         }
         @include xs{
@@ -221,6 +219,7 @@
         }
 
         .contacts-header{
+            align-self: flex-start;
             @include xl{
                 margin-bottom: 48px;
             }            
@@ -314,11 +313,11 @@
         .button-send{
             height: fit-content;
             @include xl{
-                margin-top: -96px;
+                margin-top: -152px; //-96px;
                 margin-left: auto;
             }
             @include lg{ 
-                margin-top: -69px;
+                margin-top: -114px; //-69px;
                 margin-left: auto;
             }
         }

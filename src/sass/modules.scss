@@ -287,6 +287,7 @@
     }
 }
 
+// whole screen length images on main-page:
 .main-image-outer{
     position: absolute;
     left: 34.5%;
@@ -339,7 +340,6 @@
         }
     }
 }
-
 .products-section__image{
     position: relative;
     display: flex;
@@ -362,6 +362,7 @@
         margin-bottom: 54px;
         height: 223px;
     }
+
     #front-image{
         display: flex;
         justify-content: center;
@@ -391,7 +392,7 @@
             position: absolute;
             bottom: -10.5%;
             max-width: 705px;
-            background-image: url('../resources/images/oil-bottles.png');
+            background-image: url('../resources/images/oils-group.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -419,7 +420,7 @@
     }
 }
 
-// image of oil on about-page in common-section
+// image of oil on about-page in common-section:
 .stat-section__image{
     position: absolute;
     z-index: -1;
@@ -510,11 +511,16 @@
     }
 }
 
+// titles:
 .section-title{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
 
     .section-title__title{
         @include title-font-sizes;
@@ -541,7 +547,7 @@
         margin-left: -5%;
         margin-right: -5%;
         height: 3px;
-        width: 100%;
+        width: 110%;
         background-color: $orange;
 
         @include xs{
@@ -549,7 +555,6 @@
         }
     }
 }
-
 .section-subtitle{
     display: flex;
     justify-content: center;
@@ -573,31 +578,39 @@
     justify-content: center;
     align-items: center;
 
+    background-color: #fff;
+    border-radius: 11.4%;
+    text-decoration: none;
+    color: black;
+
     @include xl{
         width: 378px;
         height: 400px;
+        border: 5px solid #ACACAC;
+
     }
     @include lg{
         width: 289px;
         height: 306px;
+        border: 5px solid #ACACAC;
+
     }
     @include md{
         width: 135px;
         height: 145px;
+        border: 3px solid #ACACAC;
+
     }
     @include xs{
         max-width: 135px;
         height: 142px;
         width: 100%;
+        border: 2px solid #ACACAC;
+
     }
 
 
-    background-color: #fff;
-    border: 5px solid #ACACAC;
-    border-radius: 11.4%;
 
-    text-decoration: none;
-    color: black;
 
     .product-card__image{
         height: 45.7%;
@@ -654,7 +667,7 @@
 
     @include xl{
         margin-right: 57px;
-        padding: 35px 37px;
+        padding: 33px 37px;
         max-width: 585px;
     }
     @include lg{
