@@ -26,6 +26,11 @@ block vars
 			{ title: "Новое современное оборудование", icon: "lab-2.png"},
 			{ title: "Создание сложных продуктов в рамках импортозамещения", icon: "lab-3.png"},
 		]
+		var slides = [
+			{ src: "slide-1.png" },
+			{ src: "slide-2.png" },
+			{ src: "slide-3.png" },
+		]
 
 block content
 	.about-wrapper
@@ -36,7 +41,10 @@ block content
 				- var sectionTitle = {title: "О компании"}
 				include ../parts/section-title
 				
-				//-video(width="100%" height="100%" controls="controls").about-video
+				-
+					var video = {
+						src: "https://assets.mixkit.co/videos/preview/mixkit-air-travel-over-a-couple-of-expressways-39939-large.mp4"
+					}
 				include ../parts/video
 
 
@@ -79,9 +87,26 @@ block content
 			section#lab-section
 				- var sectionTitle = {title: "Лаборатория"}
 				include ../parts/section-title
-				
+
 				- var imagedList = labNotes;
 				include ../parts/imaged-list
+
+		section#lab-video-section
+			.container
+				-
+					var video = {
+						src: "https://assets.mixkit.co/videos/preview/mixkit-air-travel-over-a-couple-of-expressways-39939-large.mp4"
+					}
+				include ../parts/video 
+
+		section#lab-excursion-section
+			.container
+				- var form = {title: 'Записаться на экскурсию'}
+				include ../parts/form
+
+
+		
+
 
 
 

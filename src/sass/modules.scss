@@ -108,12 +108,25 @@
             }
             border-radius: 2px;
             background-color: #000;
+
             &:nth-child(1){
-                transform: rotate(45deg) translate(15%);
+                @include md{
+                    transform: rotate(45deg) translate(15%);
+                }
+                @include xs{
+                    transform: rotate(45deg) translate(15%);
+                }
+                
             }
             &:nth-child(3){
-                transform: rotate(-45deg) translate(15%);
+                @include md{
+                    transform: rotate(-45deg) translate(19%);
+                }
+                @include xs{
+                    transform: rotate(-45deg) translate(19%);
+                }
             }
+
             &:nth-child(2){
                 display: none;
             }
@@ -909,7 +922,7 @@
         }
         @include xs{
             font-size: .625rem; // 10px
-            line-height: .625rem; // 10px
+            line-height: .9375rem; // 15px
         }
     }
     .paragraph__text{
@@ -931,9 +944,8 @@
         }
         @include xs{
             font-size: .625rem; // 10px
-            line-height: .625rem; // 10px
+            line-height: .9375rem; // 15px
             text-align: unset;
-
         }
     }
 }
@@ -1023,12 +1035,12 @@
     margin: 0;
     padding: 0;
 
-    .imaged-list__item{
-        $imaged-list__icon-size-xl: 350px;
-        $imaged-list__icon-size-lg: 268px;
-        $imaged-list__icon-size-md: 176px;
-        $imaged-list__icon-size-xs: 99px;
+    $icon-size-xl: 350px;
+    $icon-size-lg: 268px;
+    $icon-size-md: 176px;
+    $icon-size-xs: 99px;
 
+    .imaged-list__item{
         position: relative;
         background-color: #fff;
         border: 2px solid #E8F0FB;
@@ -1036,25 +1048,25 @@
 
         @include xl{
             margin-bottom: 103px;
-            padding: 87px calc(20px + $imaged-list__icon-size-xl / 2) 87px 118px;
+            padding: 87px calc(20px + $icon-size-xl / 2) 87px 118px;
             width: 90%;
             font-size: 2rem;
         }
         @include lg{
             margin-bottom: 81px;
-            padding: 67px calc(20px + $imaged-list__icon-size-lg / 2) 67px 90px;
+            padding: 67px calc(20px + $icon-size-lg / 2) 67px 90px;
             width: 89%;
             font-size: 1.5rem;
         }
         @include md{
             margin-bottom: 76px;
-            padding: 44px calc(10px + $imaged-list__icon-size-md / 2) 44px 93px;
+            padding: 44px calc(10px + $icon-size-md / 2) 44px 93px;
             width: 87%;
             font-size: 1.25rem;
         }
         @include xs{
             margin-bottom: 10px;
-            padding: 51px calc(30px + $imaged-list__icon-size-xs) 47px 20px;
+            padding: 51px calc(30px + $icon-size-xs) 47px 20px;
             width: 100%;
             font-size: .625rem; // 10px
             border: 1px solid #E8F0FB;
@@ -1067,51 +1079,66 @@
         &:nth-child(even){
             margin-left: auto;
             text-align: center;
+
+            @include xl{
+                padding: 87px 118px 87px calc(20px + $icon-size-xl / 2);
+            }
+            @include lg{
+                padding: 67px 90px 67px calc(20px + $icon-size-lg / 2);
+            }
+            @include md{
+                padding: 44px 93px 44px calc(10px + $icon-size-md / 2);
+            }
+            @include xs{
+                padding: 47px 20px 51px calc(30px + $icon-size-xs);
+            }
+
             .imaged-list__icon{
                 right: auto;
                 @include xl{
-                    left: calc(-1 * $imaged-list__icon-size-xl / 2);
-                    //padding-right: ;
+                    left: calc(-1 * $icon-size-xl / 2);
+                    padding-right: -$icon-size-xl;
                 }
                 @include lg{
-                    left: calc(-1 * $imaged-list__icon-size-lg / 2);
+                    left: calc(-1 * $icon-size-lg / 2);
                 }
                 @include md{
-                    left: calc(-1 * $imaged-list__icon-size-md / 2);
+                    left: calc(-1 * $icon-size-md / 2);
                 }
                 @include xs{
                     left: 20px;
                 }
             }
         }
-        .imaged-list__icon{
-            position: absolute;
- 
-            top: 0;
-            bottom: 0;
-            margin: auto 0;
-            z-index: 1;
 
-            @include xl{
-                right: calc(-1 * $imaged-list__icon-size-xl / 2);
-                width: $imaged-list__icon-size-xl;
-                height: $imaged-list__icon-size-xl;
-            }
-            @include lg{
-                right: calc(-1 * $imaged-list__icon-size-lg / 2);
-                width: $imaged-list__icon-size-lg;
-                height: $imaged-list__icon-size-lg;
-            }
-            @include md{
-                right: calc(-1 * $imaged-list__icon-size-md / 2);
-                width: $imaged-list__icon-size-md;
-                height: $imaged-list__icon-size-md;
-            }
-            @include xs{
-                right: 20px;
-                width: $imaged-list__icon-size-xs;
-                height: $imaged-list__icon-size-xs;
-            }
+    }
+
+    .imaged-list__icon{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        z-index: 1;
+
+        @include xl{
+            right: calc(-1 * $icon-size-xl / 2);
+            width: $icon-size-xl;
+            height: $icon-size-xl;
+        }
+        @include lg{
+            right: calc(-1 * $icon-size-lg / 2);
+            width: $icon-size-lg;
+            height: $icon-size-lg;
+        }
+        @include md{
+            right: calc(-1 * $icon-size-md / 2);
+            width: $icon-size-md;
+            height: $icon-size-md;
+        }
+        @include xs{
+            right: 20px;
+            width: $icon-size-xs;
+            height: $icon-size-xs;
         }
     }
 }

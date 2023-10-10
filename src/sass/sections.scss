@@ -491,7 +491,7 @@
     }
 }
 
-#corp-excursion-section{
+#corp-excursion-section, #lab-excursion-section{
     background-color: #204D6C;
     background-repeat: no-repeat;
     background-size: cover;
@@ -519,15 +519,15 @@
 #lab-section{
     @include xl{
         padding-top: 79px;
-        padding-bottom: 111px;
+        padding-bottom: 179px;
     }
     @include lg{
         padding-top: 54px;
-        padding-bottom: 68px;
+        padding-bottom: 120px;
     }
     @include md{
         padding-top: 42px;
-        padding-bottom: 42px;
+        padding-bottom: 74px;
     }
     @include xs{
         padding-top: 28px;
@@ -546,6 +546,39 @@
         }
         @include xs{
             margin-bottom: 22px;
+        }
+    }
+}
+
+#lab-video-section{
+    background-image: url("../resources/images/lab-video-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include xl{
+        padding: 165px 0; 
+    }
+    @include lg{
+        padding: 113px 0;
+    }
+    @include md{
+        padding: 39px 0;
+    }
+    @include xs{
+        padding: 18px 0;
+    }
+
+    .video{
+        border: 20px solid #fff;
+
+        @include md{
+            border: 3px solid #fff;
+
+        }
+        @include xs{
+            border: 3px solid #fff;
+
         }
     }
 }

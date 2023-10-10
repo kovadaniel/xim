@@ -19,7 +19,10 @@ block content
 				- var sectionTitle = {title: "О компании"}
 				include ../parts/section-title
 				.content
-					//-video(width="100%" height="100%" controls="controls").about-video
+					-
+						var video = {
+							src: "https://assets.mixkit.co/videos/preview/mixkit-air-travel-over-a-couple-of-expressways-39939-large.mp4"
+						}
 					include ../parts/video
 					.button-more Узнать больше
 					p.about-description 
